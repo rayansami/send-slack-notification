@@ -1,5 +1,4 @@
 <?php
-
 //Receive the RAW post data
 $content = trim(file_get_contents("php://input")); // Catch the JSON
 $decoded = json_decode($content);       
@@ -18,7 +17,7 @@ $payload = array(
 );
 
 if ($type == "SpamNotification"){
-  // Use cURL to send a POST request with JSON data
+  // Use cURL to send a POST request with JSON data 
     $ch = curl_init($webhook_url); // Init
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
     curl_setopt($ch, CURLOPT_POST, true);
@@ -34,6 +33,4 @@ if ($type == "SpamNotification"){
         echo "Error: $result";
     }  
 }
-  
-
 ?>
